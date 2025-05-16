@@ -56,11 +56,11 @@ object aa345678 : Project({
 
     features {
         kubernetesCloudImage {
-            id = "PROJECT_EXT_3"
+            id = "PROJECT_EXT_4"
             profileId = "kube-1"
             agentPoolId = "-2"
             podSpecification = runContainer {
-                dockerImage = "http://teamcity-ha-server.default:8111"
+                dockerImage = "jetbrains/teamcity-agent:latest"
             }
         }
         kubernetesCloudProfile {
