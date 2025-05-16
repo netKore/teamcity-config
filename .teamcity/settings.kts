@@ -1,4 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
+import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.projectFeatures.buildReportTab
 
 /*
@@ -48,4 +50,25 @@ project {
 
 object aa345678 : Project({
     name = "testo"
+
+    features {
+        kubernetesCloudImage {
+            id = "PROJECT_EXT_3"
+            profileId = "kube-1"
+            agentPoolId = "-2"
+            podSpecification = runContainer {
+                dockerImage = "http://teamcity-ha-server.default:8111"
+            }
+        }
+        kubernetesCloudProfile {
+            id = "kube-1"
+            name = "k8s-wobmat-agents"
+            serverURL = "http://teamcity-ha.default:8111"
+            terminateIdleMinutes = 30
+            apiServerURL = "https://kubernetes.default.svc"
+            namespace = "wombat-agents"
+            maxInstancesCount = 10
+            authStrategy = defaultServiceAccount()
+        }
+    }
 })
