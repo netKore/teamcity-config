@@ -51,6 +51,8 @@ project {
 object aa345678 : Project({
     name = "testo"
 
+    buildType(sas)
+
     features {
         kubernetesCloudImage {
             id = "PROJECT_EXT_3"
@@ -71,4 +73,8 @@ object aa345678 : Project({
             authStrategy = defaultServiceAccount()
         }
     }
+})
+
+object sas : BuildType({
+    name = "asdasd"
 })
