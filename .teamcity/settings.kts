@@ -77,4 +77,8 @@ object aa345678 : Project({
 
 object sas : BuildType({
     name = "asdasd"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
 })
