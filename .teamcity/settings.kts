@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudImage
 import jetbrains.buildServer.configs.kotlin.kubernetesCloudProfile
 import jetbrains.buildServer.configs.kotlin.projectFeatures.buildReportTab
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -31,6 +32,8 @@ version = "2025.03"
 project {
     description = "Contains all other projects"
 
+    vcsRoot(TcAlexConfig)
+
     features {
         buildReportTab {
             id = "PROJECT_EXT_1"
@@ -47,6 +50,16 @@ project {
 
     subProject(aa345678)
 }
+
+object TcAlexConfig : GitVcsRoot({
+    name = "TC-Alex-Config"
+    url = "git@github.com:netKore/teamcity-config.git"
+    branch = "main"
+    authMethod = customPrivateKey {
+        userName = "netKore"
+        customKeyPath = "/data/teamcity_server/secrets/gh.key"
+    }
+})
 
 
 object aa345678 : Project({
