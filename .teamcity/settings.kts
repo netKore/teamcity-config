@@ -33,6 +33,7 @@ project {
     description = "Contains all other projects"
 
     vcsRoot(TcAlexConfig)
+    vcsRoot(TcAlexConfigAnon)
 
     features {
         buildReportTab {
@@ -59,6 +60,12 @@ object TcAlexConfig : GitVcsRoot({
         userName = "netKore"
         customKeyPath = "/data/teamcity_server/secrets/gh.key"
     }
+})
+
+object TcAlexConfigAnon : GitVcsRoot({
+    name = "TC-Alex-Config-anon"
+    url = "https://github.com/netKore/teamcity-config.git"
+    branch = "main"
 })
 
 
