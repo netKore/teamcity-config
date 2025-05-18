@@ -86,8 +86,9 @@ object aa345678 : Project({
         kubernetesCloudProfile {
             id = "kube-1"
             name = "k8s-wobmat-agents"
-            serverURL = "http://teamcity-ha.default:8111"
-            terminateIdleMinutes = 30
+            serverURL = "http://teamcity.example.com"
+            terminateAfterBuild = true
+            terminateIdleMinutes = 5
             apiServerURL = "https://kubernetes.default.svc"
             namespace = "wombat-agents"
             maxInstancesCount = 10
