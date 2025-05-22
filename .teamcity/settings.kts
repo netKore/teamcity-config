@@ -70,7 +70,7 @@ object TcAlexConfigAnon : GitVcsRoot({
 
 
 object aa345678 : Project({
-    name = "testo"
+    name = "Wombat PRoject"
 
     buildType(sas)
 
@@ -98,7 +98,7 @@ object aa345678 : Project({
 })
 
 object sas : BuildType({
-    name = "asdasd"
+    name = "Wombat build"
 
     vcs {
         root(DslContext.settingsRoot)
@@ -108,7 +108,7 @@ object sas : BuildType({
         script {
             name = "hello world"
             id = "hello_world"
-            scriptContent = "echo hallo"
+            scriptContent = "echo Hallo!"
         }
     }
 })
