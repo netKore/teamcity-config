@@ -70,7 +70,7 @@ object TcAlexConfigAnon : GitVcsRoot({
 
 
 object aa345678 : Project({
-    name = "Wombat PRoject"
+    name = "Wombat Project"
 
     buildType(sas)
 
